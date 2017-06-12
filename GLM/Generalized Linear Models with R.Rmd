@@ -1,6 +1,7 @@
 ---
 title: "Generalized Linear Models in R"
 author: "Markus Gesmann"
+
 date: "09 June 2017"
 output:
   beamer_presentation:
@@ -496,6 +497,7 @@ There are many aspects of GLMs which I haven't touched on here, such as:
 
 Books:
  
+ - [Generalized Linear Models, *P. McCullagh and J.A.Nelder*](https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606)
  - [An Introduction to Generalized Linear Models, *Annette J. Dobson and Adrian Barnett*](https://books.google.co.uk/books?id=ZzncBQAAQBAJ&source=gbs_similarbooks&redir_esc=y)
  - [Data Analysis Using Regression and Multilevel/ Hierarchical Models, *Andrew Gelmann and Jennifer Hill*](http://www.stat.columbia.edu/~gelman/arm/)
 
