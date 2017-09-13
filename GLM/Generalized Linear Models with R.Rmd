@@ -2,7 +2,7 @@
 title: "Generalized Linear Models in R"
 author: "Markus Gesmann"
 
-date: "09 June 2017"
+date: "14 September 2017"
 output:
   beamer_presentation:
     includes:
