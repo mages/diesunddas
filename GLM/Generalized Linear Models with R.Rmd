@@ -80,7 +80,7 @@ Using a small toy data set we will discuss how different assumptions about the d
 
 ## The problem GLMs solved
 
- - Fitting data from distributions other than Normal distributions
+ - Linear regression of data generated from distributions other than the Gaussian
  - First published in 1972 by John Nelder and Robert Wedderburn, as a unifying approach for many different distributions
  
 ## Original Abstract
@@ -499,7 +499,7 @@ Books:
  
  - [Generalized Linear Models, *P. McCullagh and J.A.Nelder*](https://www.crcpress.com/Generalized-Linear-Models-Second-Edition/McCullagh-Nelder/p/book/9780412317606)
  - [An Introduction to Generalized Linear Models, *Annette J. Dobson and Adrian Barnett*](https://books.google.co.uk/books?id=ZzncBQAAQBAJ&source=gbs_similarbooks&redir_esc=y)
- - [Data Analysis Using Regression and Multilevel/ Hierarchical Models, *Andrew Gelmann and Jennifer Hill*](http://www.stat.columbia.edu/~gelman/arm/)
+ - [Data Analysis Using Regression and Multilevel/ Hierarchical Models, *Andrew Gelman and Jennifer Hill*](http://www.stat.columbia.edu/~gelman/arm/)
 
 On my blog:
 
