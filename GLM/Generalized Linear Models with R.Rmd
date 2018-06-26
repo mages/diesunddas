@@ -375,7 +375,7 @@ Therefore I need an S-shape curve that maps the sales statistics into probabilit
 
 A canonical choice is the logistic function:
 \[
- \text{logit}(u) = \frac{e^u}{e^u + 1} = \frac{1}{1 + e^{-u}}
+ \text{logistic}(u) = \frac{e^u}{e^u + 1} = \frac{1}{1 + e^{-u}}
  \]
 
 ## Model 4: Binomial GLM
@@ -385,7 +385,7 @@ The Binomial GLM can be described as
 \begin{align}
 y_i & \sim \text{Binom}(n, \mu_i)\\ 
 \text{logit}(\mu_i) & = \alpha + \beta x_i\\
-\mathbb{E}[y_i] & =\mu_i=\text{logit}^{-1}(\alpha + \beta x_i)\\ 
+\mathbb{E}[y_i] & =\mu_i=\text{logit}(\alpha + \beta x_i)\\ 
 \end{align}
 
 ## Model 4: Binomial GLM
