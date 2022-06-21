@@ -44,7 +44,7 @@ Using differential equations to describe the data, I will show how various regre
 
 Along the way I will emphasise the value of domain knowledge and share my experience of engaging with domain experts.
 
-## Why we build models?
+## Why do we build models?
 
  - To test our understanding of the world
  - To understand change
@@ -87,7 +87,7 @@ basicPlot()
 
 ## Model building 
 
- - Models are about what changes, and what doesn't. Some are useful. 
+ - Models are about what changes, and what doesn't -- some are useful 
 
  - If something doesn't change, we shouldn't expected a variation of its measurement
 
@@ -420,13 +420,13 @@ matplot(temperature, pp_probs, t="l", bty="n",
 points(icecream$temp, icecream$units, pch=19)
 ```
 
-Hurray! This looks really good. 
+Hurray! This looks really good.
 
 ## Non-linear growth curve model: Critique
 
-I am happy with the model and its narrative. The parameters are easy interpretable, 
-the curve can be explained and the model generates positive integers, 
-in-line with the data. 
+I am happy with the model and its narrative. The parameters can be interpreted
+the curve can be explained and the model produces positive integers,
+consistent with the data.
 
 I can use the distribution output to decide how much ice cream I want to stock.
 
