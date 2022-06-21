@@ -1,8 +1,8 @@
 ---
 title: "Models are about what changes, and what doesn't"
-author: "Markus Gesmann"
-
-date: "28 September 2018"
+subtitle: "Markus Gesmann"
+author: "LondonR"
+date: "29 June 2022"
 output:
   beamer_presentation:
     includes:
@@ -98,11 +98,11 @@ basicPlot()
 ## Hot or cold, we assume constant demand
 
 $$
-\frac{d\mu(t)}{dt} = 0,\quad\mu(0) = \mu_0
+\frac{d\mu(T)}{dT} = 0,\quad\mu(0) = \mu_0
 $$
-It's solution is $\mu(t) = \mu_0$ and hence, we could assume for the observable data $y(t)$:
+It's solution is $\mu(T) = \mu_0$ and hence, we could assume for the observable data $y(T)$:
 $$
-y(t) \sim \mathcal{N}(\mu_0, \sigma^2)
+y(T) \sim \mathcal{N}(\mu_0, \sigma^2)
 $$
 
 ## No change: Critique
@@ -117,13 +117,13 @@ Of course, this can’t be right. We would expect higher sales of ice cream for 
 Regardless of the starting temperature, we assume constant increase in sales as the temperature increases by $1^\circ C$:
 
 $$
-\frac{d\mu(t)}{dt} = b,\quad \mu(0)=a
+\frac{d\mu(T)}{dT} = b,\quad \mu(0)=a
 $$
 
 Solving the ODE gives us the classic linear equation for the mean:
 
 $$
-\mu(t) = a + b\,t
+\mu(T) = a + b\,T
 $$
 
 
@@ -133,7 +133,7 @@ Now, since we are assuming constant change, I should also assume that the varian
 $(\sigma^2)$ around my data doesn't change either and hence, I could model my data as Gaussian again:
 
 $$
-y(t)  \sim \mathcal{N}(\mu(t), \sigma^2)  = \mathcal{N}(a + b\,t, \sigma^2)
+y(T)  \sim \mathcal{N}(\mu(T), \sigma^2)  = \mathcal{N}(a + b\,T, \sigma^2)
 $$
 
 
@@ -153,12 +153,12 @@ Thus, we are moving from an additive to a multiplicative scale.
 
 We can describe the change in sales as:
 $$
-\frac{d\mu(t)}{dt} = \mu(t) \, b,\quad \mu(0)=a
+\frac{d\mu(T)}{dT} = \mu(T) \, b,\quad \mu(0)=a
 $$
 The solution to this ODE is exponential growth ($b>0$), or decay ($b<0$):
 
 $$
-\mu(t) = a \, \exp(b\,t)
+\mu(T) = a \, \exp(b\,T)
 $$
 
 ## Constant sales growth rate: Log-normal model 
@@ -166,13 +166,13 @@ $$
 On a log-scale we have:
 
 $$
-\log{\mu(t)} = \log{a} + b\,t
+\log{\mu(T)} = \log{a} + b\,T
 $$
 
 This is a linear model again. Thus, we can assume constant change and variance $(\sigma^2)$ on a log-scale. A natural choice for the data generating distribution would be:
 
 $$
-\log{y}(t) \sim \mathcal{N}(\log{a} + b\,t, \sigma^2)
+\log{y}(T) \sim \mathcal{N}(\log{a} + b\,T, \sigma^2)
 $$
 
 ## Constant sales growth rate: Constant CV
@@ -183,7 +183,7 @@ $(CV)$ on the original scale:
 $$
 \begin{aligned}
 CV &=\frac{\sqrt{Var[y]}}{E[y]} \\
-&  = \frac{\sqrt{(e^{\sigma^2} - 1)e^{2\mu(t)+\sigma^2}}}{e^{\mu(t)+\sigma^2/2}} \\
+&  = \frac{\sqrt{(e^{\sigma^2} - 1)e^{2\mu(T)+\sigma^2}}}{e^{\mu(T)+\sigma^2/2}} \\
 & = \sqrt{e^{\sigma^2} - 1} \\
 & = const
 \end{aligned}
@@ -204,7 +204,7 @@ A constant demand elasticity of $b = 60$% would mean that a 10% increase in the 
 Thus, the relative change in sales is proportional to the relative change in temperature:
 
 $$
-{\frac{d\mu(t)}{\mu(t)}} = b {\frac{dt}{t}}
+{\frac{d\mu(T)}{\mu(T)}} = b {\frac{dT}{T}}
 $$
 
 ## Constant demand elasticity: ODE
@@ -212,13 +212,13 @@ $$
 Re-arranging and adding an initial value gives us the following ODE:
 
 $$
-\frac{d\mu(t)}{dt} = \frac{b}{t}\mu(t),\quad\mu(1)=a
+\frac{d\mu(T)}{dT} = \frac{b}{T}\mu(T),\quad\mu(1)=a
 $$
 
 It's solution is:
 
 $$
-\mu(t) = \exp{(a + b \log(t))} = \exp{(a)} \cdot t^b
+\mu(T) = \exp{(a + b \log(T))} = \exp{(a)} \cdot T^b
 $$
 
 ## Constant demand elasticity: Log-log scale
@@ -226,13 +226,13 @@ $$
 Now take the log on both sides and we are back to linear regression equation:
 
 $$
-\log(\mu(t)) = a + b \log(t)
+\log(\mu(T)) = a + b \log(T)
 $$
 
 Thus, we are assuming constant change on a log-log scale. We can assume a log-normal data generating distribution again, but this time we measure temperature on a log-scale as well.
 
 $$
-\log{y(t)} \sim \mathcal{N}(a + b\log{t}, \sigma^2)
+\log{y(T)} \sim \mathcal{N}(a + b\log{T}, \sigma^2)
 $$
 
 
@@ -249,7 +249,7 @@ However, if I believe that my market/ sales opportunities are limited, i.e. we r
 Let's assume as temperature rises, sales will increase exponential initially and then tail off to a saturation level $M$. The following ODE would describe this behaviour: 
 
 $$
-\frac{d\mu(t)}{dt} = b\, \mu(t) (1 - \mu(t)/M),\quad\mu(0)=\mu_0 
+\frac{d\mu(T)}{dT} = b\, \mu(T) (1 - \mu(T)/M),\quad\mu(0)=\mu_0 
 $$
 
 ## Constant market size: Integration 
@@ -257,7 +257,7 @@ $$
 Integrating the ODE provides us with the logistic growth curve (often used to describe population growth):
 
 $$
-\mu(t) = \frac{ M }{1 + \frac{M-\mu_0}{\mu_0}e^{-b\,t}} = \frac{\mu_0 M e^{b\,t}}{\mu_0 (e^{b\,t} - 1) + M}
+\mu(T) = \frac{ M }{1 + \frac{M-\mu_0}{\mu_0}e^{-b\,T}} = \frac{\mu_0 M e^{b\,T}}{\mu_0 (e^{b\,T} - 1) + M}
 $$
 
 ## Constant market size: Proportional growth
@@ -266,19 +266,19 @@ Setting $M=1$ gives me the proportion of maximum sales, and setting $a:=(1-\mu_0
 
 $$
 \begin{aligned}
-\mu_p(t) &= \frac{ 1 }{1 + \frac{1-\mu_0}{\mu_0}e^{-b\,t}} \\
- & = \frac{1}{1 + e^{-(a+b\,t)}}
+\mu_p(T) &= \frac{ 1 }{1 + \frac{1-\mu_0}{\mu_0}e^{-b\,T}} \\
+ & = \frac{1}{1 + e^{-(a+b\,T)}}
 \end{aligned}
 $$
 
-Nice, this is logistic regression. Defining $\mbox{logitic}(u) := \frac{1}{1 + e^{-u}}$, we can see that the above has a linear expression in $u$.
+Nice, this is logistic regression. Defining $\mbox{logistic}(u) := \frac{1}{1 + e^{-u}}$, we can see that the above has a linear expression in $u$.
 
 ## Constant market size: Logistic regression
 
-Thus, if I set $z(t):=y(t)/M$, I could assume the Binomial distribution as the data generating process:
+Thus, if I set $z(T):=y(T)/M$, I could assume the Binomial distribution as the data generating process:
 
 $$
-z(t) \sim \mbox{Bin}\left(M, \mbox{logitic}(\mu_p(t))\right)
+z(T) \sim \mbox{Bin}\left(M, \mbox{logistic}(\mu_p(T))\right)
 $$
 
 But I don't know $M$. Thus, I have to provide a prior distribution, for example a Poisson distribution with parameter (my initial guess) $M_0$
@@ -295,7 +295,7 @@ We could consider the Poisson distribution as the data generating
 distribution, with its mean and variance being described by the non-linear growth curve above (this is not a GLM, unlike the models so far):
 
 $$
-y(t) \sim \mbox{Pois}(\mu(t)) = \mbox{Pois}\left(\frac{\mu_0 M e^{b\,t}}{\mu_0 (e^{b\,t} - 1) + M}\right)
+y(T) \sim \mbox{Pois}(\mu(T)) = \mbox{Pois}\left(\frac{\mu_0 M e^{b\,T}}{\mu_0 (e^{b\,T} - 1) + M}\right)
 $$
 
 The Poisson distribution has the property that the mean and variance are the same. If $y \sim \mbox{Pois}(\lambda)$, then $E[y] =\mbox{Var}[y] = \lambda$, but more importantly, we are generating integers, in line with the observations.
@@ -389,7 +389,8 @@ mdl <- brm(
   prior = c(prior(normal(10, 100), nlpar = "mu0", lb=0),
             prior(normal(0.2, 1), nlpar = "b", lb=0),
             prior(normal(800, 400), nlpar = "M", lb=0)),
-  seed = 1234, control = list(adapt_delta=0.9))
+  seed = 1234, control = list(adapt_delta=0.9),
+  file = "Ice_Model_Nonlinear_Negbin")
 ```
 
 ## Model output
